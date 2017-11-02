@@ -23,8 +23,8 @@ docker run \
     -e GCE_DOMAIN="example.com" \
     -e EMAIL=certmaster@example.com \
     -e DOMAINS=example.com,test.example.com \
-    -v ./my-project-34efa2.json:/gcloud-service-account.json:ro \
-    -v ./certstore:/certstore \
+    -v `pwd`/my-project-34efa2.json:/gcloud-service-account.json:ro \
+    -v `pwd`/certstore:/certstore \
     alexdo/letsencrypt-gcloud-dns
 ```
 
