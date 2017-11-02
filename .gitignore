@@ -1,0 +1,3 @@
+gcloud-service-account.json
+certstore/
+!certstore/.gitkeep

@@ -1,0 +1,12 @@
+version: "3"
+services:
+    letsencrypt:
+        build: .
+        environment:
+          - GCE_PROJECT=some-project
+          - GCE_DOMAIN="example.org"
+          - EMAIL=test@example.org
+          - DOMAINS=example.org,www.example.org
+        volumes:
+          - "./certstore:/certstore"
+          - "./gcloud-service-account.json:/gcloud-service-account.json"
