@@ -1,15 +1,15 @@
 # Docker-based LetsEncrypt generator for Google Cloud DNS
 
-Use this docker image to generate [Let's Encrypt SSL](https://letsencrypt.org/) Certificates via ACME DNS-01 challenge for [DNS zones in Google Cloud](https://cloud.google.com/dns/), based on the wonderful ACME Client ["Lego" (v0.41)](https://github.com/xenolf/lego).
+Use this docker image to generate [Let's Encrypt SSL](https://letsencrypt.org/) Certificates via ACME DNS-01 challenge for [DNS zones in Google Cloud](https://cloud.google.com/dns/), based on the wonderful ACME Client ["Lego" (v3.3)](https://github.com/go-acme/lego).
 
 After moving my domains over to Google Cloud, I was looking for a convenient way to automate certificate retrieval. Previously, I was using the DNS-01 challenge in combination with a PowerDNS on my own servers.
 
 ## Usage
 
 ### Google Cloud Credentials
-You will need to create a [Google Cloud Service Account](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#creatinganaccount), so that [Lego](https://github.com/xenolf/lego) may add TXT records for ACME Challenge verification to your zones. 
+You will need to create a [Google Cloud Service Account](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#creatinganaccount), so that [Lego](https://github.com/go-acme/lego) may add TXT records for ACME Challenge verification to your zones. 
 
-1. Open the [Service accounts](https://console.developers.google.com/permissions/serviceaccounts) page. If prompted, select a project.
+1. Open the [Service accounts](https://console.developers.google.com/iam-admin/serviceaccounts) page. If prompted, select a project.
 2. Click **Create service account**.
 3. In the Create service account window, type a name for the service account, and select **Furnish a new private key**. The key's type should be **JSON**.
 4. Select **DNS > DNS-Administrator** in the **Role** dropdown.
@@ -40,7 +40,7 @@ docker run \
 
 **Volumes:**  
 * **`/gcloud-service-account.json`** – You need to mount the JSON key of your Google Cloud service account here
-* **`/certstore`** – This should be an empty folder initially. [Lego](https://github.com/xenolf/lego) will store your letsencrypt account information and, more importantly, your domain's certificates here.
+* **`/certstore`** – This should be an empty folder initially. [Lego](https://github.com/go-acme/lego) will store your letsencrypt account information and, more importantly, your domain's certificates here.
 
 
 ## Building this image yourself
@@ -52,7 +52,7 @@ docker build -t some-name:1.2.3 .
 
 ## License
 
-Copyright 2017 Alexander Dormann
+Copyright 2017-2020 Alexander Dormann
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

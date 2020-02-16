@@ -3,8 +3,7 @@ set -e
 set -x
 
 PRIMARY_DOMAIN=""
-LEGO_CMD="lego --email=$EMAIL --dns=gcloud --path=/certstore \
-    --accept-tos --server=https://acme-v01.api.letsencrypt.org/directory"
+LEGO_CMD="lego --email=$EMAIL --dns=gcloud --path=/certstore --accept-tos"
 
 echo "===== ACTIVATING GOOGLE CLOUD SDK SERVICE ACCOUNT FROM gcloud-service-account.json ====="
 export GOOGLE_APPLICATION_CREDENTIALS=/gcloud-service-account.json
