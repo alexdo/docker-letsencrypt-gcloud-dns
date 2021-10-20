@@ -13,7 +13,7 @@ then
     echo "Unable to activate service account listed in gcloud-service-account.json"
     exit 2
 fi
-echo "==============\n\n"
+echo -e "==============\n\n"
 
 
 _domain_arr=$(echo $DOMAINS | tr "," "\n")
@@ -37,4 +37,5 @@ else
 fi
 
 echo "===== RUNNING LEGO ====="
+echo "$LEGO_CMD"
 $LEGO_CMD
