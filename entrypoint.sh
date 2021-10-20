@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-set -x
+#set -x
 
 PRIMARY_DOMAIN=""
 LEGO_CMD="lego --email=$EMAIL --dns=gcloud --path=/certstore --accept-tos"
@@ -30,7 +30,7 @@ done
 if [ -f "/certstore/certificates/$PRIMARY_DOMAIN.json" ] 
 then
     echo "===== OPERATION: RENEW ====="
-    LEGO_CMD="$LEGO_CMD renew"
+    LEGO_CMD="$LEGO_CMD renew --days=$RENEW_DAYS"
 else
     echo "===== OPERATION: INITIAL REQUEST ====="
     LEGO_CMD="$LEGO_CMD run"

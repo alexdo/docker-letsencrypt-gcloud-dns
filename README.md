@@ -37,6 +37,7 @@ docker run \
 * **`GCE_DOMAIN`** – This is the name of a domain within the `GCE_PROJECT` project
 * **`EMAIL`** – Your email address. This will be sent to letsencrypt and acts as a contact address. It won't be made public.
 * **`DOMAINS`** – A list of (sub)domains to be included in the certificate, seperated by comma (`,`).
+* **`RENEW_DAYS`** – Threshold for certificate renewal in days. Default: 30 (= renew when cert expires in less than 30 days).
 
 **Volumes:**  
 * **`/gcloud-service-account.json`** – You need to mount the JSON key of your Google Cloud service account here
