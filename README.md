@@ -1,6 +1,6 @@
 # Docker-based LetsEncrypt generator for Google Cloud DNS
 
-Use this docker image to generate [Let's Encrypt SSL](https://letsencrypt.org/) Certificates via ACME DNS-01 challenge for [DNS zones in Google Cloud](https://cloud.google.com/dns/), based on the wonderful ACME Client ["Lego" (v3.3)](https://github.com/go-acme/lego).
+Use this docker image to generate [Let's Encrypt SSL](https://letsencrypt.org/) Certificates via ACME DNS-01 challenge for [DNS zones in Google Cloud](https://cloud.google.com/dns/), based on the wonderful ACME Client ["Lego" (v4.5)](https://github.com/go-acme/lego).
 
 After moving my domains over to Google Cloud, I was looking for a convenient way to automate certificate retrieval. Previously, I was using the DNS-01 challenge in combination with a PowerDNS on my own servers.
 
@@ -52,7 +52,7 @@ docker build -t some-name:1.2.3 .
 
 ## License
 
-Copyright 2017-2020 Alexander Dormann
+Copyright 2017-2021 Alexander Dormann
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
